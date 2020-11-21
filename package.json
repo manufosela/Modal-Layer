@@ -1,7 +1,7 @@
 {
-  "name": "modallayer",
+  "name": "vanilla-modal-layer",
   "version": "1.0.0",
-  "description": "Modal Layer Class",
+  "description": "Vanilla Modal Layer Class",
   "main": "ModalLayer.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
