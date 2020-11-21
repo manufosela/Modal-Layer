@@ -1,0 +1,21 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Demo ModalLayer</title>
+</head>
+<body>
+  <button id="openmodalBtn">Abrir Modal</button>
+  <script type="module">
+    import { ModalLayer } from '../ModalLayer.js';
+    function onload() {
+      const modalLayer = new ModalLayer(); 
+      const openmodalBtn = document.getElementById('openmodalBtn');
+      openmodalBtn.onclick = function() {
+        modalLayer.openModal('PROBANDO');
+      }
+    }
+    window.onload = onload();
+  </script>
+</body>
+</html>
