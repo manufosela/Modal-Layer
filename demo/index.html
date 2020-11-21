@@ -3,6 +3,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Demo ModalLayer</title>
+  <style>
+    .a {
+      display:flex;
+      justify-content: center;
+      align-items: center;
+    }
+  </style>
 </head>
 <body>
   <button id="openmodalBtn">Abrir Modal</button>
@@ -12,7 +19,23 @@
       const modalLayer = new ModalLayer(); 
       const openmodalBtn = document.getElementById('openmodalBtn');
       openmodalBtn.onclick = function() {
-        modalLayer.openModal('PROBANDO');
+        modalLayer.styleContent = `
+          main {
+            display:flex;
+            justify-content: center;
+            align-items: center;
+          }
+        `;
+        modalLayer.contentModal = `
+          <main>
+            <div>
+              <h1>Testing ModalLayer</h1>
+              <p>To create modals layers easily. It uses vanilla javascript.</p>
+              <a href="https://codepen.io/manufosela/pen/MWeMXrO">Codepen Demo</a>
+            </div>
+          </main>
+        `;
+        modalLayer.openModal();
       }
     }
     window.onload = onload();

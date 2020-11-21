@@ -22,12 +22,21 @@ $ npm run start
 import { ModalLayer } from '../ModalLayer.js';
     
 const modalLayer = new ModalLayer(); 
-const modalContent = `
-  <div style="display:flex; justify-content: center; align-items: center;">
-    <h1>Testing ModalLayer</h1>
-    <p>To create modals layers easily. It uses vanilla javascript.</p>
-    <a href="https://codepen.io/manufosela/pen/MWeMXrO">Codepen Demo</a>
-  </div>
+modalLayer.styleContent = `
+  main {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+  }
 `;
-modalLayer.openModal(modalContent);
+modalLayer.contentModal = `
+  <main>
+    <div>
+      <h1>Testing ModalLayer</h1>
+      <p>To create modals layers easily. It uses vanilla javascript.</p>
+      <a href="https://codepen.io/manufosela/pen/MWeMXrO">Codepen Demo</a>
+    </div>
+  </main>
+`;
+modalLayer.openModal();
 ```
