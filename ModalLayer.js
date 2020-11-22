@@ -47,6 +47,8 @@ export class ModalLayer {
   }
 
   injectModalContent() {
+    this.bodyBlackedout.style.height = document.documentElement.clientHeight;
+    this.modalHTML.style.top = `calc(${window.scrollY}px + 50%)`;
     this.modalHTML.shadowRoot.innerHTML = `
       <style>
         ${this.modalStyleClose}
