@@ -29,7 +29,7 @@ modalLayer.styleContent = `
     align-items: center;
   }
 `;
-modalLayer.contentModal = `
+modalLayer.contentHTML = `
   <main>
     <div>
       <h1>Testing ModalLayer</h1>

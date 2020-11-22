@@ -3,6 +3,7 @@ export class ModalLayer {
     this.modalId = `Modal-${Date.now()}`;
 
     this.contentStyle = '';
+    this.contentHTML = '';
     
     this.defineStyles();
     this.createModal();
@@ -52,7 +53,7 @@ export class ModalLayer {
         ${this.contentStyle}
       </style>
       <span class="ModalLayer-modal-closeBtn">X</span>
-      <div id="ModalLayer-modal-content">${this.contentModal}</div>
+      <div id="ModalLayer-modal-content">${this.contentHTML}</div>
     `;
   }
 
