@@ -1,9 +1,12 @@
 export class ModalLayer {
-  constructor() {
+  constructor(options = {}) {
+
     this.modalId = `Modal-${Date.now()}`;
 
     this.contentStyle = '';
     this.contentHTML = '';
+    this.heightModal = options.widthModal || '365px';
+    this.widthModal = options.heightModal || '600px';
     
     this.defineStyles();
     this.createModal();
@@ -12,7 +15,7 @@ export class ModalLayer {
   }
 
   defineStyles() {
-    this.modalStyle = '.ModalLayer-modal { height: 365px; width: 650px; background-color: #fff; position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); padding: 45px; opacity: 0; pointer-events: none; transition: all 300ms ease-in-out; z-index: 1011; }';
+    this.modalStyle = `.ModalLayer-modal { height: ${this.heightModal}; width: ${this.widthModal}; background-color: #fff; position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); padding: 45px; opacity: 0; pointer-events: none; transition: all 300ms ease-in-out; z-index: 1011; }`;
     this.modalStyleVisible = '.ModalLayer-modal-visible { opacity: 1; pointer-events: auto; }';
     this.modalStyleClose = '.ModalLayer-modal-closeBtn { position: absolute; font-size: 1.2rem; right: -10px; top: -10px; cursor: pointer; background:#F30; padding:5px; font-size:bold; border-radius:50%; }';
     this.blackedout = '.ModalLayer-blackedout { position: absolute; z-index: 1010; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.65); display: none; }';
