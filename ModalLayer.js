@@ -5,8 +5,8 @@ export class ModalLayer {
 
     this.contentStyle = '';
     this.contentHTML = '';
-    this.heightModal = options.widthModal || '365px';
-    this.widthModal = options.heightModal || '600px';
+    this.heightModal = options.heightModal || '365px';
+    this.widthModal = options.widthModal || '600px';
     
     this.defineStyles();
     this.createModal();
