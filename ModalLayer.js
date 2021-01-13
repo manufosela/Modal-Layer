@@ -62,6 +62,10 @@ export class ModalLayer {
     `;
   }
 
+  getElementById(id) {
+    return this.modalHTML.shadowRoot.getElementById(id);
+  }
+
   hideModal() {
     this.modalHTML.classList.remove('ModalLayer-modal-visible');
     this.bodyBlackedout.classList.remove('ModalLayer-blackedout-visible');
