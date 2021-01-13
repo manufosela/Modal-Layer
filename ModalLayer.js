@@ -19,7 +19,7 @@ export class ModalLayer {
     this.modalStyleVisible = '.ModalLayer-modal-visible { opacity: 1; pointer-events: auto; }';
     this.modalStyleClose = '.ModalLayer-modal-closeBtn { position: absolute; font-size: 1.2rem; right: -10px; top: -10px; cursor: pointer; background:#F30; padding:5px; font-size:bold; border-radius:50%; }';
     this.blackedout = '.ModalLayer-blackedout { position: absolute; z-index: 1010; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.65); display: none; }';
-    this.blackedoutVisible = '.ModalLayer-blackedout-visible { display: block; }';
+    this.blackedoutVisible = `.ModalLayer-blackedout-visible { display: block; height:${document.body.clientHeight} }`;
   }
 
   createModal() {
