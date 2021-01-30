@@ -33,6 +33,7 @@ export class ModalLayer {
   }
 
   injectStyles() {
+    this.defineStyles();
     let style = document.getElementById('EditContentStyles');
     if (!style) {
       style = document.createElement('style');
