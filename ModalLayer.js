@@ -1,13 +1,27 @@
 export class ModalLayer {
   constructor(options = {}) {
-
     this.modalId = `Modal-${Date.now()}`;
-
     this.contentStyle = '';
     this.contentHTML = '';
     this.heightModal = options.heightModal || '365px';
     this.widthModal = options.widthModal || '600px';
     
+    this.initModal();
+  }
+
+  restoreModal() {
+    const modalLayer = document.querySelector('[id^="Modal-"]');
+    if (modalLayer) {
+      modalLayer.parentElement.removeChild(modalLayer);
+      const styles = document.querySelector('#EditContentStyles');
+      styles.parentElement.removeChild(styles);
+      const bodyBlackedout = document.querySelector('.ModalLayer-blackedout');
+      bodyBlackedout.parentElement.removeChild(bodyBlackedout);
+    }
+  }
+
+  initModal() {
+    this.restoreModal();
     this.defineStyles();
     this.createModal();
     this.injectStyles();
