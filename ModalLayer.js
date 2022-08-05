@@ -5,6 +5,7 @@ export class ModalLayer {
     this.contentHTML = '';
     this.heightModal = options.heightModal || '365px';
     this.widthModal = options.widthModal || '600px';
+    this.eventInfoList = [];
     
     this.initModal();
   }
@@ -81,6 +82,14 @@ export class ModalLayer {
     return this.modalHTML.shadowRoot.getElementById(id);
   }
 
+  addEvents() {
+    this.modalHTML.shadowRoot.querySelector('.ModalLayer-modal-closeBtn').addEventListener('click', this.hideModal.bind(this));
+    document.querySelector('.ModalLayer-blackedout').addEventListener('click', this.hideModal.bind(this));
+    this.eventInfoList.forEach(eventInfo => {
+      this.modalHTML.shadowRoot.querySelector(eventInfo.selector).addEventListener(eventInfo.event, eventInfo.callback);
+    })
+  }
+
   hideModal() {
     this.modalHTML.classList.remove('ModalLayer-modal-visible');
     this.bodyBlackedout.classList.remove('ModalLayer-blackedout-visible');
@@ -92,7 +101,6 @@ export class ModalLayer {
     this.modalHTML.classList.add('ModalLayer-modal-visible');
     this.bodyBlackedout.classList.add('ModalLayer-blackedout-visible');
     this.injectModalContent();
-    this.modalHTML.shadowRoot.querySelector('.ModalLayer-modal-closeBtn').addEventListener('click', this.hideModal.bind(this));
-    document.querySelector('.ModalLayer-blackedout').addEventListener('click', this.hideModal.bind(this));
+    this.addEvents();
   }
 }
