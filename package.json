@@ -1,6 +1,6 @@
 {
   "name": "vanilla-modal-layer",
-  "version": "1.4.1",
+  "version": "1.4.2",
   "description": "Vanilla Modal Layer Class",
   "main": "ModalLayer.js",
   "scripts": {
