@@ -30,6 +30,7 @@ export class ModalLayer {
   }
 
   defineStyles() {
+    this.modalContainer = `.ModalLayer-modal-content { overflow-y: auto; max-height: 80vh; overflow-x: hidden; }`;
     this.modalStyle = `.ModalLayer-modal { height: ${this.heightModal};  max-height: 100%; width: ${this.widthModal};max-width: 100%; display: block; background-color: #fff; position: fixed; left: 50%; top: 50%; transform: translate(-50%, -50%); padding: 45px; opacity: 0; pointer-events: none; transition: all 300ms ease-in-out; z-index: 1011; box-shadow: 0 0 60px 10px rgba(0, 0, 0, 0.9);}`;
     this.modalStyleVisible = '.ModalLayer-modal-visible { opacity: 1; pointer-events: auto; }';
     this.modalStyleClose = '.ModalLayer-modal-closeBtn {cursor: pointer; position: absolute; right: 10px; top: 10px;}.ModalLayer-modal-closeBtn:after, .ModalLayer-modal-closeBtn:before {content: "";height: 20px;width: 20px;border-top: 1px solid #000;position: absolute;top: 7px;right: -8px;-moz-transform: rotate(-45deg);-ms-transform: rotate(-45deg);-webkit-transform: rotate(-45deg);transform: rotate(-45deg);}.ModalLayer-modal-closeBtn:before {right: 6px;-moz-transform: rotate(45deg);-ms-transform: rotate(45deg);-webkit-transform: rotate(45deg);transform: rotate(45deg);}.ModalLayer-modal-closeBtn:hover {filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=30);opacity: 0.3;}';
@@ -70,10 +71,11 @@ export class ModalLayer {
     // this.modalHTML.style.top = `calc(${window.scrollY}px + 50%)`;
     this.modalHTML.shadowRoot.innerHTML = `
       <style>
+        ${this.modalContainer}
         ${this.modalStyleClose}
         ${this.contentStyle}
       </style>
-      <div id="ModalLayer-modal-content">       
+      <div id="ModalLayer-modal-content" class="ModalLayer-modal-content">       
       <span class="ModalLayer-modal-closeBtn"></span>
         ${this.contentHTML}
       </div>
